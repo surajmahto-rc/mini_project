@@ -1,0 +1,27 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=fashionProductCatalog
+$productCatalogName=fashionProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+
+# Language
+$lang=en
+
+# Create Categories
+UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+ ;11;;Kids;
+ ;1;;Men;
+ ;2;;Women;
+ ;3;;Tools;
+ ;4;;Gear;
+ ;5;;Technical accessories;
+ ;6;;Freestyle+Freeride;
+ ;7;;Sets Freestyle+Freeride;
+ ;8;;Splitboard;
+ ;9;;Snowboards women;
+ ;10;;Fashion;

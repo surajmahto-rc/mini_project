@@ -1,0 +1,26 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Suppliers
+# English Localisation
+
+# Macros / Replacement Parameter definitions
+$productCatalog=fashionProductCatalog
+$productCatalogName=fashionProductCatalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+$superCategories=superCategories(code, )
+
+# Language
+$lang=en
+
+# Create Categories
+INSERT_UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang];description[lang=$lang]
+;brand_1;;Brand 1;Brand 1dis;
+ ;brand_2;;Brand 2;Brand 2dis;
+ ;brand_3;;Brand 3;Brand 3dis;
+ ;brand_4;;Brand 4;Brand 4dis;
+ ;brand_5;;Brand 5;Brand 5dis;
+ ;brand_6;;Brand 6;Brand 6dis;
+ ;brand_7;;Brand 7;Brand 7dis;
+ ;brand_99;;Brand 99;Brand 99dis;
+ ;brand_98;;Brand 98;Brand 98dis;

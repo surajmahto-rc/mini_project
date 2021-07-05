@@ -1,0 +1,40 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=fashionProductCatalog
+$productCatalogName=fashionProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$categories=target(code, $catalogVersion)[unique=true]
+$supercategories=source(code, $catalogVersion)[unique=true]
+
+
+# Insert Categories
+INSERT_UPDATE Category;code[unique=true];allowedPrincipals(uid)[default='customergroup'];$catalogVersion
+;11
+;1
+;2
+;3
+;4
+;5
+;6
+;7
+;8
+;9
+;10
+
+# Insert Category Structure
+INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
+									 ;1;11
+									 ;2;11
+									 ;3;11
+								     ;4;11
+					                 ;5;11
+									 ;6;11
+									 ;7;11
+								     ;8;11
+								     ;9;11
+								     ;10;11

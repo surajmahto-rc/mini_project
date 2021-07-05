@@ -1,0 +1,25 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Suppliers
+
+# Macros / Replacement Parameter definitions
+$productCatalog=fashionProductCatalog
+$productCatalogName=fashionProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+$superCategories=superCategories(code, $catalogVersion)
+
+# Create Supplier Categories
+INSERT_UPDATE Category;code[unique=true];$catalogVersion;$superCategories;allowedPrincipals(uid)[default='customergroup']
+;brand_1;;1
+;brand_2;;2
+;brand_3 Slam;;3
+;brand_4 Originals;;4
+;brand_5;;5
+;brand_6;;6
+;brand_7;;7
+;brand_8;;8
+;brand_99;;9
+;brand_98;;11
+
